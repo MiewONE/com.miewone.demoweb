@@ -1,0 +1,33 @@
+{{>layout/header}}
+<h1>사원 조회</h1>
+<div class="col-md-12">
+    <!--몰록 출력 영역-->
+    <table class="table table-horizontal table-bordered">
+        <thead class="thead-strong">
+        <tr>
+            <th>사원번호</th>
+            <th>사원명</th>
+            <th>전화번호</th>
+            <th>주민 번호</th>
+            <th>주소</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        {{#posts}}
+            <tr>
+                <td><a href="/posts/update/{{id}}">{{id}}</td>
+                <td>{{name}}</a></td>
+                <td>{{phNo}}</td>
+                <td>{{personID}}</td>
+                <td>{{address}}</td>
+            </tr>
+        {{/posts}}
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-md-6">
+            <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+        </div>
+    </div>
+</div>
+{{>layout/footer}}

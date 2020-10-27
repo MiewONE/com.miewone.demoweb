@@ -1,0 +1,18 @@
+<table class="table table-horizontal table-bordered">
+    <thead class="thead-strong">
+    <tr>
+        <th>사원번호</th>
+        <th>사원명</th>
+        <th>주민 번호</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+    {{#posts}}
+        <tr>
+            <td><a href="/posts/update/{{id}}">{{id}}</td>
+            <td>{{name}}</a></td>
+            <td>{{personID}}</td>
+        </tr>
+    {{/posts}}
+    </tbody>
+</table>
