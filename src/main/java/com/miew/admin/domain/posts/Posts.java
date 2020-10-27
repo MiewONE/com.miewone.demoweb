@@ -17,19 +17,77 @@ public class Posts extends BaseTimeEntity {
     @GeneratedValue(strategy= GenerationType.IDENTITY) // PK의 생성 규칙을 나타냅니다. mysql의 auto_increment와 비슷
     private Long id;
 
-    @Column(length=500,nullable=false)  // 테이블의 칼럼을 나타내며 굳이 선언하지 않더라도 해당 클래스의 필드는 모두 컬럼이 된다. 사용하는이유
-    private String title;               // 기본값 외에 추가로 변경이 필요한 옵션이 있으면 사용함.
+//    @Column(length=500,nullable=false)  // 테이블의 칼럼을 나타내며 굳이 선언하지 않더라도 해당 클래스의 필드는 모두 컬럼이 된다. 사용하는이유
+//    private String title;               // 기본값 외에 추가로 변경이 필요한 옵션이 있으면 사용함.
+    @Column(length=10,nullable=false)
+    private String name;        //사원 이름
+    @Column(nullable = false)
+    private String date;        // 입사 일자
+    @Column(nullable = false)
+    private String phNo;        // 핸드폰 번호
+    @Column(nullable = false)
+    private String email;       // 이메일 주소
+    @Column(nullable = false)
+    private String personID;    // 주민등록 번호
+    @Column(nullable = false)
+    private String sex;        // 성별
+    @Column(nullable = false)
+    private String zip;         //우편번호
+    @Column(nullable = false)
+    private String address;     // 주소지
+    @Column(nullable = false)
+    private String detailAddress;
+    @Column(nullable = false)
+    private String password;    // 비밀번호
+    @Column(nullable = false)
+    private String position;    // 직급
+    @Column(nullable = false)
+    private String jobType;     // 직종
 
-    @Column(columnDefinition="TEXT",nullable = false)
-    private String content;
+    //사진 추가해야함.
 
-    private String author;
 
-    @Builder // 해당 클래스의 빌더 패턴 클래스를 생성, 생성자 상단에 선언 시 생성자에 포함된 필드만 빌더에 포함.
-    public Posts(String title,String content,String author)
+//    @Column(columnDefinition="TEXT",nullable = false)
+//    private String content;
+//
+//    private String author;
+
+//    @Builder // 해당 클래스의 빌더 패턴 클래스를 생성, 생성자 상단에 선언 시 생성자에 포함된 필드만 빌더에 포함.
+//    public Posts(String title,String content,String author)
+//    {
+//        this.title = title;
+//        this.content = content;
+//        this.author=author;
+//    }
+    @Builder
+    public Posts(String name,String date,String phNo,String email,String personID,String sex,String zip,String address,String detailAddress,String password,String position,String jobType)
     {
-        this.title = title;
-        this.content = content;
-        this.author=author;
+        this.name = name;
+        this.date = date;
+        this.phNo = phNo;
+        this.email = email;
+        this.personID = personID;
+        this.sex = sex;
+        this.zip = zip;
+        this.address = address;
+        this.detailAddress = detailAddress;
+        this.password = password;
+        this.position = position;
+        this.jobType = jobType;
+    }
+
+    public void update(String name,String date,String phNo,String email,String personID,String sex,String zip,String address,String detailAddress,String password,String position,String jobType) {
+        this.name = name;
+        this.date = date;
+        this.phNo = phNo;
+        this.email = email;
+        this.personID = personID;
+        this.sex = sex;
+        this.zip = zip;
+        this.address = address;
+        this.detailAddress = detailAddress;
+        this.password = password;
+        this.position = position;
+        this.jobType = jobType;
     }
 }

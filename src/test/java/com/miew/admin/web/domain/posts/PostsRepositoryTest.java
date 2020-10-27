@@ -33,43 +33,85 @@ public class PostsRepositoryTest
     @Test
     public void load_boardsave()
     {
-        //given
-        String title = "테스트 게시글";
-        String content = "테스트 본문";
-
-        postsRepository.save(Posts.builder() //postsRepository.save() 테이블 posts에 insert/update쿼리를 실행 , id값이 있다면 update,없다면 insert쿼리가 실행
-                .title(title)
-                .content(content)
-                .author("dlsrk489@gmail.com")
+        // 기초
+//        //given
+//        String title = "테스트 게시글";
+//        String content = "테스트 본문";
+//
+//        postsRepository.save(Posts.builder() //postsRepository.save() 테이블 posts에 insert/update쿼리를 실행 , id값이 있다면 update,없다면 insert쿼리가 실행
+//                .title(title)
+//                .content(content)
+//                .author("dlsrk489@gmail.com")
+//                .build());
+//
+//        //when
+//        List<Posts> postsList = postsRepository.findAll(); // findAll : 테이블 posts에 있는 모든 데이터를 조회해오는 메소드입니다.
+//
+//        //then
+//        Posts posts = postsList.get(0);
+//        assertThat(posts.getTitle()).isEqualTo(title);
+//        assertThat(posts.getContent()).isEqualTo(content);
+        // 응용
+        postsRepository.save(Posts.builder()
+                .name("name")
+                .date("date")
+                .phNo("phNo")
+                .email("email")
+                .personID("personID")
+                .sex("sex")
+                .zip("zip")
+                .address("address")
+                .detailAddress("detailAddress")
+                .password("password")
+                .position("position")
+                .jobType("jobType")
                 .build());
 
-        //when
-        List<Posts> postsList = postsRepository.findAll(); // findAll : 테이블 posts에 있는 모든 데이터를 조회해오는 메소드입니다.
-
-        //then
-        Posts posts = postsList.get(0);
-        assertThat(posts.getTitle()).isEqualTo(title);
-        assertThat(posts.getContent()).isEqualTo(content);
-    }
-
-    @Test
-    public void BaseTimeEntity_register()
-    {
-        //given
-        LocalDateTime now = LocalDateTime.of(2019,6,4,0,0,0);
-        postsRepository.save(Posts.builder()
-                .title("title")
-                .content("content")
-                .author("author")
-                .build()
-        );
         //when
         List<Posts> postsList = postsRepository.findAll();
 
         //then
         Posts posts = postsList.get(0);
+        assertThat(posts.getName()).isEqualTo("name");
+        assertThat(posts.getPhNo()).isEqualTo("phNo");
+    }
 
-        System.out.println(">>>>>>> createDate="+posts.getCreateDate()+", modifiedDate="+posts.getModifiedDate());
+    @Test
+    public void BaseTimeEntity_register()
+    {
+        // 기초
+//        //given
+//        LocalDateTime now = LocalDateTime.of(2019,6,4,0,0,0);
+//        postsRepository.save(Posts.builder()
+//                .title("title")
+//                .content("content")
+//                .author("author")
+//                .build()
+//        );
+//        //when
+//        List<Posts> postsList = postsRepository.findAll();
+//
+//        //then
+//        Posts posts = postsList.get(0);
+//
+//        System.out.println(">>>>>>> createDate="+posts.getCreateDate()+", modifiedDate="+posts.getModifiedDate());
+//
+//        assertThat(posts.getCreateDate()).isAfter(now);
+//        assertThat(posts.getModifiedDate()).isAfter(now);
+
+        // 응용
+        //given
+        LocalDateTime now = LocalDateTime.of(2020,10,27,0,0,0);
+        postsRepository.save(Posts.builder()
+                .name("name")
+                .email("email")
+                .build());
+
+        //when
+        List<Posts> postsList = postsRepository.findAll();
+
+        //then
+        Posts posts = postsList.get(0);
 
         assertThat(posts.getCreateDate()).isAfter(now);
         assertThat(posts.getModifiedDate()).isAfter(now);
