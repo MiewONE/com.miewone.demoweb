@@ -21,33 +21,33 @@ public class Posts extends BaseTimeEntity {
 //    private String title;               // 기본값 외에 추가로 변경이 필요한 옵션이 있으면 사용함.
     @Column(length=10,nullable=false)
     private String name;        //사원 이름
-    @Column(nullable = false)
+    @Column
     private String date;        // 입사 일자
-    @Column(nullable = false)
+    @Column
     private String phNo;        // 핸드폰 번호
-    @Column(nullable = false)
+    @Column
     private String email;       // 이메일 주소
-    @Column(nullable = false)
+    @Column
     private String personID;    // 주민등록 번호
-    @Column(nullable = false)
+    @Column
     private String sex;        // 성별
-    @Column(nullable = false)
+    @Column
     private String zip;         //우편번호
-    @Column(nullable = false)
+    @Column
     private String address;     // 주소지
-    @Column(nullable = false)
+    @Column
     private String detailAddress;
-    @Column(nullable = false)
+    @Column
     private String password;    // 비밀번호
-    @Column(nullable = false)
+    @Column
     private String position;    // 직급
-    @Column(nullable = false)
+    @Column
     private String jobType;     // 직종
 
     //사진 추가해야함.
 
 
-//    @Column(columnDefinition="TEXT",nullable = false)
+//    @Column(columnDefinition="TEXT",)
 //    private String content;
 //
 //    private String author;

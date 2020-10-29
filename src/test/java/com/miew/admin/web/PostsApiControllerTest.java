@@ -142,7 +142,7 @@ public class PostsApiControllerTest {
                 .phNo("phNo")
                 .position("position")
                 .detailAddress("detailAddress")
-                .password("password")
+                .password("pwd")
                 .build());
         Long updateId = savedPosts.getId();
         String expectedName = "name2";
@@ -150,7 +150,7 @@ public class PostsApiControllerTest {
 
         PostsUpdateRequestsDto requestsDto = PostsUpdateRequestsDto.builder()
                 .name(expectedName)
-//                .password(expectedePwd)
+                .password(expectedePwd)
                 .build();
 
         String url = "http://localhost:"+port+"/api/v1/posts/"+updateId;
@@ -163,7 +163,7 @@ public class PostsApiControllerTest {
         assertThat(responseEntity.getBody()).isGreaterThan(0L);
         List<Posts> all = postsRepository.findAll();
         assertThat(all.get(0).getName()).isEqualTo(expectedName);
-        assertThat(all.get(0).getEmail()).isEqualTo(expectedePwd);
+        assertThat(all.get(0).getPassword()).isEqualTo(expectedePwd);
 
 
 
